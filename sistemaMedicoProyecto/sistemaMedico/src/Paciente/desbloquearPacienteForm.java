@@ -5,6 +5,8 @@
  */
 package Paciente;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author j3s
@@ -56,8 +58,18 @@ public class desbloquearPacienteForm extends javax.swing.JFrame {
         jLabel7.setText("Cédula del paciente:");
 
         btnConsultarCodigo.setText("Consultar");
+        btnConsultarCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCodigoActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnDesbloquear.setText("Desbloquear");
 
@@ -116,6 +128,19 @@ public class desbloquearPacienteForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConsultarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCodigoActionPerformed
+        String codigo = txtCodigoPaciente.getText();
+        
+        if (!esNumero(codigo)){
+                JOptionPane.showMessageDialog(rootPane, "El codigo no puede contener espacios en blanco ni caracteres alfabéticos");
+            }else if(codigo.equals(""))
+                JOptionPane.showMessageDialog(rootPane, "El codigo no puede ser un campo vacío");
+    }//GEN-LAST:event_btnConsultarCodigoActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtCodigoPaciente.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -163,4 +188,24 @@ public class desbloquearPacienteForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombrePaciente;
     private javax.swing.JTextField txtCodigoPaciente;
     // End of variables declaration//GEN-END:variables
+public boolean esNumero(String str) {
+        for (char c: str.toCharArray())
+        {
+            if (!Character.isDigit(c))
+                JOptionPane.showMessageDialog(rootPane,str.equals("") );
+                    return false;
+        }
+        return true;
+    }
+
+
+    public boolean contieneDigito(String str) {
+         
+        for (char c: str.toCharArray())
+        {
+            if(Character.isDigit(c) || str.equals(""))
+                return true;
+        }
+        return false;
+    }
 }

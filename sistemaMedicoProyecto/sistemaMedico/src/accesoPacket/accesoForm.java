@@ -5,6 +5,8 @@
  */
 package accesoPacket;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author j3s
@@ -41,6 +43,11 @@ public class accesoForm extends javax.swing.JFrame {
         lblUsuario.setText("Usuario:");
 
         txtUsuario.setBackground(new java.awt.Color(254, 254, 254));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
 
         txtContraseña.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -107,8 +114,21 @@ public class accesoForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
+        String usuario = txtUsuario.getText();
+        String contrasena = txtContraseña.getText();
+        
+        if(!(usuario.equals("medico") ||usuario.equals("asistente"))){
+            JOptionPane.showMessageDialog(rootPane, "Solo puede ingresar con 2 tipos de usuario: medico o asistente");
+            txtUsuario.setText("");
+        }else if(!contrasena.equals("1234")){
+            JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta");
+            txtContraseña.setText("");
+        }
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

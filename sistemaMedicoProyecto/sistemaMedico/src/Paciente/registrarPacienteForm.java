@@ -7,13 +7,12 @@ package Paciente;
 
 import fichaMedica.registroFichaForm;
 import javax.swing.JOptionPane;
-import principalPacket.Verificador;
 
 /**
  *
  * @author j3s
  */
-public class registrarPacienteForm extends javax.swing.JFrame implements Verificador{
+public class registrarPacienteForm extends javax.swing.JFrame{
 
     /**
      * Creates new form registrarPacienteForm
@@ -223,35 +222,64 @@ public class registrarPacienteForm extends javax.swing.JFrame implements Verific
         String telefono = txtTelefono.getText();
         String tipodeSangre = (String)jComboBox2.getSelectedItem();
         String genero = (String)jComboBox1.getSelectedItem();
+        String direccion = txtDireccion.getText();
+        if (cedula.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "El campo cédula no tiene que estar vacío");
+        }else{
+            if (cedula.length()!= 10){
+                JOptionPane.showMessageDialog(rootPane, "La longitud de la cédula debe ser de 10 caracteres");
+                txtCedula.setText("");
+            }else if (!esNumero(cedula)){
+                JOptionPane.showMessageDialog(rootPane, "La cedula no puede contener espacios en blanco ni caracteres alfabéticos");
+                txtCedula.setText("");
+            }
+        }
         
-        if (cedula.length()!= 10)
-            JOptionPane.showMessageDialog(rootPane, "La longitud debe ser de 10 caracteres");
-        if (!esNumero(cedula))
-            JOptionPane.showMessageDialog(rootPane, "La cedula no puede contener espacios en blanco ni caracteres alfabéticos");
-        if (telefono.length()> 10)
-            JOptionPane.showMessageDialog(rootPane, "La longitud debe ser menor de 10 números");
-        if (!esNumero(telefono))
-            JOptionPane.showMessageDialog(rootPane, "El telefono no puede contener espacios en blanco ni caracteres alfabéticos");
+        if (nombre.equals("") || apellido.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "El campo nombre o el campo apellido no tiene que estar vacío");
+        }else{
+            if(nombre.length() >15 || apellido.length()>15){
+                JOptionPane.showMessageDialog(rootPane, "La longitud del nombre y del apellido debe ser menor de 15 caracteres");
+                txtNombre.setText("");
+                txtApellido.setText("");
+            }else if (contieneDigito(nombre) || contieneDigito(apellido)){
+                JOptionPane.showMessageDialog(rootPane, "El nombre y el apellido deben poseer carácteres alfabéticos exclusivamente.");
+                txtNombre.setText("");
+                txtApellido.setText("");
+            }
+        }
+        
+        if (direccion.equals(""))
+            JOptionPane.showMessageDialog(rootPane, "El campo dirección no tiene que estar vacío");
+        else if (direccion.length()>40)
+        {
+            JOptionPane.showMessageDialog(rootPane, "El campo dirección no puede exceder la longitud de 40 caracteres");
+            txtDireccion.setText("");
+        }
+        
+        if (telefono.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "El campo teléfono no tiene que estar vacío");
+        }else{
+            if (telefono.length()> 10){
+                JOptionPane.showMessageDialog(rootPane, "La longitud debe ser menor de 10 números");
+                txtTelefono.setText("");
+            }else if (!esNumero(telefono)){
+                JOptionPane.showMessageDialog(rootPane, "El telefono no puede contener espacios en blanco ni caracteres alfabéticos");
+                txtTelefono.setText("");
+            }
+        }
+        
         if (genero.equals("-----"))
             JOptionPane.showMessageDialog(rootPane, "Seleccione un género para registrarlo");
+          
         if (tipodeSangre.equals("--"))
             JOptionPane.showMessageDialog(rootPane, "Seleccione su tipo de sangre para registrarlo");
-        if(nombre.length() >15 || apellido.length()>15)
-            JOptionPane.showMessageDialog(rootPane, "La longitud del nombre y del apellido debe ser menor de 15 caracteres");
-        if (contieneDigito(nombre) || contieneDigito(apellido))
-            JOptionPane.showMessageDialog(rootPane, "El nombre y el apellido deben poseer carácteres alfabéticos exclusivamente.");
-        txtCedula.setText("");
-        txtNombre.setText("");
-        txtApellido.setText("");
-        txtTelefono.setText("");
-        txtDireccion.setText("");
+        
         if (!(genero.equals("-----")||tipodeSangre.equals("--")||contieneDigito(apellido)||apellido.length() >15||contieneDigito(nombre)||nombre.length() >15 ||cedula.length()!= 10 || !esNumero(cedula) || !esNumero(telefono) || telefono.length() > 10 ))
         {
             registroFichaForm registroFichaForm = new registroFichaForm();
             this.setEnabled(false);
         }
-        
-        
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -324,21 +352,23 @@ public class registrarPacienteForm extends javax.swing.JFrame implements Verific
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
-    @Override
+  
     public boolean esNumero(String str) {
         for (char c: str.toCharArray())
         {
             if (!Character.isDigit(c))
+                JOptionPane.showMessageDialog(rootPane,str.equals("") );
                     return false;
         }
         return true;
     }
 
-    @Override
+
     public boolean contieneDigito(String str) {
+         
         for (char c: str.toCharArray())
         {
-            if(Character.isDigit(c))
+            if(Character.isDigit(c) || str.equals(""))
                 return true;
         }
         return false;

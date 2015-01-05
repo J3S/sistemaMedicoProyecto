@@ -5,6 +5,8 @@
  */
 package citaMedica;
 
+import Paciente.registrarPacienteForm;
+
 /**
  *
  * @author j3s
@@ -71,8 +73,18 @@ public class nuevaCitaForm extends javax.swing.JFrame {
         txtCodigoPaciente.setBackground(new java.awt.Color(254, 254, 254));
 
         jButton2.setText("Registrar Paciente");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         checkRegistro.setText("¿Está Registrado?");
+        checkRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkRegistroActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Nombre del paciente:");
 
@@ -113,8 +125,9 @@ public class nuevaCitaForm extends javax.swing.JFrame {
                                     .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addComponent(checkRegistro)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -181,6 +194,14 @@ public class nuevaCitaForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        registrarPacienteForm registrarPacienteForm = new registrarPacienteForm();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void checkRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRegistroActionPerformed
+        
+    }//GEN-LAST:event_checkRegistroActionPerformed
 
     /**
      * @param args the command line arguments

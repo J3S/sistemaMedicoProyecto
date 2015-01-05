@@ -5,6 +5,8 @@
  */
 package citaMedica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author j3s
@@ -59,6 +61,11 @@ public class modificarCitaForm extends javax.swing.JFrame {
         jLabel8.setText("Código del paciente:");
 
         btnConsultarCodigo.setText("Consultar");
+        btnConsultarCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCodigoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("WenQuanYi Micro Hei", 0, 24)); // NOI18N
         jLabel1.setText("Modificar Cita Médica");
@@ -68,6 +75,11 @@ public class modificarCitaForm extends javax.swing.JFrame {
         jLabel2.setText("Código de la cita:");
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setText("Modificar Cita");
 
@@ -84,6 +96,11 @@ public class modificarCitaForm extends javax.swing.JFrame {
         lblTurno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtCodigoPaciente.setBackground(new java.awt.Color(254, 254, 254));
+        txtCodigoPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoPacienteActionPerformed(evt);
+            }
+        });
 
         lblCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -219,6 +236,29 @@ public class modificarCitaForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtCodigoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoPacienteActionPerformed
+
+    private void btnConsultarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCodigoActionPerformed
+        String codigo = txtCodigoPaciente.getText();
+        if(!esNumero(codigo))
+        {
+            JOptionPane.showMessageDialog(btnComprobar, "El codigo debe ser numérico");
+            
+        }
+        
+    }//GEN-LAST:event_btnConsultarCodigoActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtCodigoPaciente.setText("");
+        lblCedula.setText("");
+        lblCodigo.setText("");
+        lblNombrePaciente.setText("");
+        lblTurno.setText("");
+        txtHora.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,4 +320,13 @@ public class modificarCitaForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigoPaciente;
     private javax.swing.JFormattedTextField txtHora;
     // End of variables declaration//GEN-END:variables
+ public boolean esNumero(String str) {
+        for (char c: str.toCharArray())
+        {
+            if (!Character.isDigit(c))
+                JOptionPane.showMessageDialog(rootPane,str.equals("") );
+                    return false;
+        }
+        return true;
+    }
 }
