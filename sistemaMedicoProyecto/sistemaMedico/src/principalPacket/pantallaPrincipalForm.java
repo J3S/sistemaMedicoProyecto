@@ -5,6 +5,9 @@
  */
 package principalPacket;
 
+import Paciente.desbloquearPacienteForm;
+import citaMedica.nuevaCitaForm;
+
 /**
  *
  * @author j3s
@@ -49,9 +52,14 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Citas Médicas", 2, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Citas Médicas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnNuevaCita.setText("Nueva Cita");
+        btnNuevaCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaCitaActionPerformed(evt);
+            }
+        });
 
         btnModificarCita.setText("Modificar Cita");
 
@@ -75,7 +83,7 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
                 .addComponent(btnConsultarCita))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Paciente", 2, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Paciente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnRegistrarPaciente.setText("Registrar Paciente");
 
@@ -111,7 +119,7 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
                 .addComponent(btnDesbloquearPaciente))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Producto Médico", 2, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Producto Médico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnRegistrarProducto.setText("Registar Producto Médico");
 
@@ -139,7 +147,7 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
                 .addComponent(btnBuscarProducto))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ficha Médica", 2, 0));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ficha Médica", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnRegistrarFicha.setText("Registrar Ficha Médica");
 
@@ -162,7 +170,7 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
                 .addComponent(btnConsultarFicha))
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Facturas, Recetas, Pagos", 2, 0));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Facturas, Recetas, Pagos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnGenerarFactura.setText("Generar Factura");
 
@@ -240,11 +248,18 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void btnDesbloquearPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloquearPacienteActionPerformed
         // TODO add your handling code here:
+        desbloquearPacienteForm desbloPacienteForm = new desbloquearPacienteForm();
     }//GEN-LAST:event_btnDesbloquearPacienteActionPerformed
+
+    private void btnNuevaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaCitaActionPerformed
+        // TODO add your handling code here:
+        nuevaCitaForm nuevaCitaForm = new nuevaCitaForm();
+    }//GEN-LAST:event_btnNuevaCitaActionPerformed
 
     /**
      * @param args the command line arguments

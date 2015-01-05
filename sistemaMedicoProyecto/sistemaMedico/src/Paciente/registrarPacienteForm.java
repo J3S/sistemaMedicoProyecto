@@ -5,11 +5,15 @@
  */
 package Paciente;
 
+import fichaMedica.registroFichaForm;
+import javax.swing.JOptionPane;
+import principalPacket.Verificador;
+
 /**
  *
  * @author j3s
  */
-public class registrarPacienteForm extends javax.swing.JFrame {
+public class registrarPacienteForm extends javax.swing.JFrame implements Verificador{
 
     /**
      * Creates new form registrarPacienteForm
@@ -37,7 +41,6 @@ public class registrarPacienteForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
@@ -60,6 +63,11 @@ public class registrarPacienteForm extends javax.swing.JFrame {
         jLabel3.setText("Cédula:");
 
         txtCedula.setBackground(new java.awt.Color(254, 254, 254));
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Nombre:");
 
@@ -81,13 +89,28 @@ public class registrarPacienteForm extends javax.swing.JFrame {
 
         jLabel9.setText("Sexo:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "Masculino", "Femenino" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Tipo de sangre:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--", "A+", "A-", "O+", "O-", "AB+", "AB-", "B+", "B-" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,10 +121,7 @@ public class registrarPacienteForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
@@ -155,9 +175,9 @@ public class registrarPacienteForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblCodigoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCodigoPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,10 +191,8 @@ public class registrarPacienteForm extends javax.swing.JFrame {
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -197,6 +215,57 @@ public class registrarPacienteForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        String cedula = txtCedula.getText();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String telefono = txtTelefono.getText();
+        String tipodeSangre = (String)jComboBox2.getSelectedItem();
+        String genero = (String)jComboBox1.getSelectedItem();
+        
+        if (cedula.length()!= 10)
+            JOptionPane.showMessageDialog(rootPane, "La longitud debe ser de 10 caracteres");
+        if (!esNumero(cedula))
+            JOptionPane.showMessageDialog(rootPane, "La cedula no puede contener espacios en blanco ni caracteres alfabéticos");
+        if (telefono.length()> 10)
+            JOptionPane.showMessageDialog(rootPane, "La longitud debe ser menor de 10 números");
+        if (!esNumero(telefono))
+            JOptionPane.showMessageDialog(rootPane, "El telefono no puede contener espacios en blanco ni caracteres alfabéticos");
+        if (genero.equals("-----"))
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un género para registrarlo");
+        if (tipodeSangre.equals("--"))
+            JOptionPane.showMessageDialog(rootPane, "Seleccione su tipo de sangre para registrarlo");
+        if(nombre.length() >15 || apellido.length()>15)
+            JOptionPane.showMessageDialog(rootPane, "La longitud del nombre y del apellido debe ser menor de 15 caracteres");
+        if (contieneDigito(nombre) || contieneDigito(apellido))
+            JOptionPane.showMessageDialog(rootPane, "El nombre y el apellido deben poseer carácteres alfabéticos exclusivamente.");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtTelefono.setText("");
+        txtDireccion.setText("");
+        if (!(genero.equals("-----")||tipodeSangre.equals("--")||contieneDigito(apellido)||apellido.length() >15||contieneDigito(nombre)||nombre.length() >15 ||cedula.length()!= 10 || !esNumero(cedula) || !esNumero(telefono) || telefono.length() > 10 ))
+        {
+            registroFichaForm registroFichaForm = new registroFichaForm();
+            this.setEnabled(false);
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +306,6 @@ public class registrarPacienteForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -255,4 +323,24 @@ public class registrarPacienteForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public boolean esNumero(String str) {
+        for (char c: str.toCharArray())
+        {
+            if (!Character.isDigit(c))
+                    return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean contieneDigito(String str) {
+        for (char c: str.toCharArray())
+        {
+            if(Character.isDigit(c))
+                return true;
+        }
+        return false;
+    }
 }
