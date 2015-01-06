@@ -123,10 +123,26 @@ public class accesoForm extends javax.swing.JFrame {
             txtUsuario.setText("");
         }else if(!contrasena.equals("1234")){
             JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta");
-            txtContraseña.setText("");
-            
-            
+            txtContraseña.setText("");   
         }
+        
+        if(usuario.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "El campo del usuario está vacío", "Advertencia", 2);
+            txtUsuario.setBackground(java.awt.Color.YELLOW);
+        }else if(!(usuario.equals("medico") || usuario.equals("asistente"))){
+            JOptionPane.showMessageDialog(rootPane, "El usuario no existe", "Error", 3);
+            txtUsuario.setBackground(java.awt.Color.PINK);
+        }else
+            txtUsuario.setBackground(java.awt.Color.WHITE);
+        
+        if(contrasena.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "El campo de la contraseña está vacío", "Advertencia", 2);
+            txtContraseña.setBackground(java.awt.Color.YELLOW);
+        }else if(!contrasena.equals("1234")){
+            JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta", "Error", 3);
+            txtContraseña.setBackground(java.awt.Color.PINK); 
+        }else
+            txtContraseña.setBackground(java.awt.Color.WHITE); 
         
         if(((usuario.equals("medico") || usuario.equals("asistente")))&&(contrasena.equals("1234")))
         {
