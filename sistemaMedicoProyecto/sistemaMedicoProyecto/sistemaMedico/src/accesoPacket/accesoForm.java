@@ -118,14 +118,6 @@ public class accesoForm extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contrasena = txtContraseña.getText();
         
-        if(!(usuario.equals("medico") ||usuario.equals("asistente"))){
-            JOptionPane.showMessageDialog(rootPane, "Solo puede ingresar con 2 tipos de usuario: medico o asistente");
-            txtUsuario.setText("");
-        }else if(!contrasena.equals("1234")){
-            JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta");
-            txtContraseña.setText("");   
-        }
-        
         if(usuario.equals("")){
             JOptionPane.showMessageDialog(rootPane, "El campo del usuario está vacío", "Advertencia", 2);
             txtUsuario.setBackground(java.awt.Color.YELLOW);
