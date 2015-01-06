@@ -5,7 +5,12 @@
  */
 package principalPacket;
 
+import fichaMedica.registroFichaForm;
+import fichaMedica.consultaFichaForm;
 import Paciente.desbloquearPacienteForm;
+import Paciente.registrarPacienteForm;
+import citaMedica.consultarCitaForm;
+import citaMedica.modificarCitaForm;
 import citaMedica.nuevaCitaForm;
 
 /**
@@ -62,8 +67,18 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         });
 
         btnModificarCita.setText("Modificar Cita");
+        btnModificarCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarCitaActionPerformed(evt);
+            }
+        });
 
         btnConsultarCita.setText("Consultar Cita");
+        btnConsultarCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCitaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -86,6 +101,11 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Paciente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnRegistrarPaciente.setText("Registrar Paciente");
+        btnRegistrarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPacienteActionPerformed(evt);
+            }
+        });
 
         btnBuscarPaciente.setText("Buscar Paciente");
 
@@ -150,8 +170,18 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ficha Médica", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         btnRegistrarFicha.setText("Registrar Ficha Médica");
+        btnRegistrarFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarFichaActionPerformed(evt);
+            }
+        });
 
         btnConsultarFicha.setText("Consultar Ficha Médica");
+        btnConsultarFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarFichaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -254,12 +284,39 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
     private void btnDesbloquearPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesbloquearPacienteActionPerformed
         // TODO add your handling code here:
         desbloquearPacienteForm desbloPacienteForm = new desbloquearPacienteForm();
+        desbloPacienteForm.setVisible(true);
     }//GEN-LAST:event_btnDesbloquearPacienteActionPerformed
 
     private void btnNuevaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaCitaActionPerformed
         // TODO add your handling code here:
         nuevaCitaForm nuevaCitaForm = new nuevaCitaForm();
+        nuevaCitaForm.setVisible(true);
     }//GEN-LAST:event_btnNuevaCitaActionPerformed
+
+    private void btnRegistrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPacienteActionPerformed
+        registrarPacienteForm registrarPacienteForm = new registrarPacienteForm();
+        registrarPacienteForm.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarPacienteActionPerformed
+
+    private void btnModificarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCitaActionPerformed
+        modificarCitaForm modificarCitaForm = new modificarCitaForm();
+        modificarCitaForm.setVisible(true);
+    }//GEN-LAST:event_btnModificarCitaActionPerformed
+
+    private void btnConsultarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCitaActionPerformed
+        consultarCitaForm consultarCitaForm = new consultarCitaForm();
+        consultarCitaForm.setVisible(true);
+    }//GEN-LAST:event_btnConsultarCitaActionPerformed
+
+    private void btnRegistrarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarFichaActionPerformed
+        registroFichaForm registroFichaForm = new registroFichaForm();
+        registroFichaForm.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarFichaActionPerformed
+
+    private void btnConsultarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarFichaActionPerformed
+        consultaFichaForm consultaFichaForm = new consultaFichaForm();
+        consultaFichaForm.setVisible(true);
+    }//GEN-LAST:event_btnConsultarFichaActionPerformed
 
     /**
      * @param args the command line arguments

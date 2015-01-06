@@ -5,6 +5,7 @@
  */
 package accesoPacket;
 
+import principalPacket.pantallaPrincipalForm;
 import javax.swing.JOptionPane;
 
 /**
@@ -123,6 +124,15 @@ public class accesoForm extends javax.swing.JFrame {
         }else if(!contrasena.equals("1234")){
             JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta");
             txtContraseña.setText("");
+            
+            
+        }
+        
+        if(((usuario.equals("medico") || usuario.equals("asistente")))&&(contrasena.equals("1234")))
+        {
+            pantallaPrincipalForm pantallaPrincipalForm = new pantallaPrincipalForm();
+            this.setVisible(false);
+            pantallaPrincipalForm.setVisible(true);
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 

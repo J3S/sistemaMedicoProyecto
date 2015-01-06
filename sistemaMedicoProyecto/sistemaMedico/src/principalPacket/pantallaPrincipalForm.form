@@ -112,11 +112,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Cita"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarCitaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnConsultarCita">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Cita"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarCitaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -160,6 +166,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar Paciente"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarPacienteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBuscarPaciente">
           <Properties>
@@ -258,11 +267,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar Ficha M&#xe9;dica"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarFichaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnConsultarFicha">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Ficha M&#xe9;dica"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarFichaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
