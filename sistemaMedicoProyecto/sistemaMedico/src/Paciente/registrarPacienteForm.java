@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author j3s
  */
-public class registrarPacienteForm extends javax.swing.JFrame{
+public class registrarPacienteForm extends javax.swing.JFrame {
 
     /**
      * Creates new form registrarPacienteForm
@@ -67,14 +67,29 @@ public class registrarPacienteForm extends javax.swing.JFrame{
                 txtCedulaActionPerformed(evt);
             }
         });
+        txtCedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCedulaFocusLost(evt);
+            }
+        });
 
         jLabel4.setText("Nombre:");
 
         txtNombre.setBackground(new java.awt.Color(254, 254, 254));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
 
         jLabel5.setText("Apellido");
 
         txtApellido.setBackground(new java.awt.Color(254, 254, 254));
+        txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtApellidoFocusLost(evt);
+            }
+        });
 
         jLabel6.setText("Fecha de nacimiento:");
 
@@ -83,8 +98,18 @@ public class registrarPacienteForm extends javax.swing.JFrame{
         jLabel8.setText("Teléfono:");
 
         txtTelefono.setBackground(new java.awt.Color(254, 254, 254));
+        txtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTelefonoFocusLost(evt);
+            }
+        });
 
         txtDireccion.setBackground(new java.awt.Color(254, 254, 254));
+        txtDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDireccionFocusLost(evt);
+            }
+        });
 
         jLabel9.setText("Sexo:");
 
@@ -220,67 +245,24 @@ public class registrarPacienteForm extends javax.swing.JFrame{
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String telefono = txtTelefono.getText();
-        String tipodeSangre = (String)jComboBox2.getSelectedItem();
-        String genero = (String)jComboBox1.getSelectedItem();
+        String tipodeSangre = (String) jComboBox2.getSelectedItem();
+        String genero = (String) jComboBox1.getSelectedItem();
         String direccion = txtDireccion.getText();
-        if (cedula.equals("")){
-            JOptionPane.showMessageDialog(rootPane, "El campo cédula no tiene que estar vacío");
-        }else{
-            if (cedula.length()!= 10){
-                JOptionPane.showMessageDialog(rootPane, "La longitud de la cédula debe ser de 10 caracteres");
-                txtCedula.setText("");
-            }else if (!esNumero(cedula)){
-                JOptionPane.showMessageDialog(rootPane, "La cedula no puede contener espacios en blanco ni caracteres alfabéticos");
-                txtCedula.setText("");
-            }
-        }
-        
-        if (nombre.equals("") || apellido.equals("")){
-            JOptionPane.showMessageDialog(rootPane, "El campo nombre o el campo apellido no tiene que estar vacío");
-        }else{
-            if(nombre.length() >15 || apellido.length()>15){
-                JOptionPane.showMessageDialog(rootPane, "La longitud del nombre y del apellido debe ser menor de 15 caracteres");
-                txtNombre.setText("");
-                txtApellido.setText("");
-            }else if (contieneDigito(nombre) || contieneDigito(apellido)){
-                JOptionPane.showMessageDialog(rootPane, "El nombre y el apellido deben poseer carácteres alfabéticos exclusivamente.");
-                txtNombre.setText("");
-                txtApellido.setText("");
-            }
-        }
-        
-        if (direccion.equals(""))
-            JOptionPane.showMessageDialog(rootPane, "El campo dirección no tiene que estar vacío");
-        else if (direccion.length()>40)
-        {
-            JOptionPane.showMessageDialog(rootPane, "El campo dirección no puede exceder la longitud de 40 caracteres");
-            txtDireccion.setText("");
-        }
-        
-        if (telefono.equals("")){
-            JOptionPane.showMessageDialog(rootPane, "El campo teléfono no tiene que estar vacío");
-        }else{
-            if (telefono.length()> 10){
-                JOptionPane.showMessageDialog(rootPane, "La longitud debe ser menor de 10 números");
-                txtTelefono.setText("");
-            }else if (!esNumero(telefono)){
-                JOptionPane.showMessageDialog(rootPane, "El telefono no puede contener espacios en blanco ni caracteres alfabéticos");
-                txtTelefono.setText("");
-            }
-        }
-        
-        if (genero.equals("-----"))
+
+        if (genero.equals("-----")) {
             JOptionPane.showMessageDialog(rootPane, "Seleccione un género para registrarlo");
-          
-        if (tipodeSangre.equals("--"))
-            JOptionPane.showMessageDialog(rootPane, "Seleccione su tipo de sangre para registrarlo");
-        
-        if (!(genero.equals("-----")||tipodeSangre.equals("--")||contieneDigito(apellido)||apellido.length() >15||contieneDigito(nombre)||nombre.length() >15 ||cedula.length()!= 10 || !esNumero(cedula) || !esNumero(telefono) || telefono.length() > 10 ))
-        {
-            registroFichaForm registroFichaForm = new registroFichaForm();
-            this.setEnabled(false);
         }
-        
+
+        if (tipodeSangre.equals("--")) {
+            JOptionPane.showMessageDialog(rootPane, "Seleccione su tipo de sangre para registrarlo");
+        }
+
+        if (!(genero.equals("-----") || tipodeSangre.equals("--") || contieneDigito(apellido) || apellido.length() > 15 || contieneDigito(nombre) || nombre.length() > 15 || cedula.length() != 10 || !esNumero(cedula) || !esNumero(telefono) || telefono.length() > 10)) {
+            registroFichaForm registroFichaForm = new registroFichaForm();
+            registroFichaForm.setVisible(true);
+            this.setVisible(false);
+        }
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
@@ -294,6 +276,75 @@ public class registrarPacienteForm extends javax.swing.JFrame{
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void txtCedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCedulaFocusLost
+        String cedula = txtCedula.getText();
+        if (cedula.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "El campo cédula no tiene que estar vacío");
+        }
+        if (cedula.length() != 10) {
+            JOptionPane.showMessageDialog(rootPane, "La longitud de la cédula debe ser de 10 caracteres");
+        }
+        if (!esNumero(cedula)) {
+            JOptionPane.showMessageDialog(rootPane, "La cedula no puede contener espacios en blanco ni caracteres alfabéticos");
+        }
+
+
+    }//GEN-LAST:event_txtCedulaFocusLost
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        String nombre = txtNombre.getText();
+        if (nombre.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "El campo nombre no tiene que estar vacío");
+        }
+        if (nombre.length() > 15) {
+            JOptionPane.showMessageDialog(rootPane, "La longitud del nombre debe ser menor de 15 caracteres");
+
+        }
+        if (contieneDigito(nombre)) {
+            JOptionPane.showMessageDialog(rootPane, "El nombre debe poseer carácteres alfabéticos exclusivamente.");
+
+        }
+
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusLost
+        String apellido = txtApellido.getText();
+        if (apellido.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "El campo nombre no tiene que estar vacío");
+        }
+        if (apellido.length() > 15) {
+            JOptionPane.showMessageDialog(rootPane, "La longitud del nombre debe ser menor de 15 caracteres");
+
+        }
+        if (contieneDigito(apellido)) {
+            JOptionPane.showMessageDialog(rootPane, "El nombre debe poseer carácteres alfabéticos exclusivamente.");
+        }
+    }//GEN-LAST:event_txtApellidoFocusLost
+
+    private void txtDireccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusLost
+        String direccion = txtDireccion.getText();
+        if (direccion.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "El campo dirección no tiene que estar vacío");
+        }
+        if (direccion.length() > 40) {
+            JOptionPane.showMessageDialog(rootPane, "El campo dirección no puede exceder la longitud de 40 caracteres");
+        }
+    }//GEN-LAST:event_txtDireccionFocusLost
+
+    private void txtTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefonoFocusLost
+        String telefono = txtTelefono.getText();
+        if (telefono.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "El campo teléfono no tiene que estar vacío");
+        }
+        if (telefono.length() > 10) {
+            JOptionPane.showMessageDialog(rootPane, "La longitud debe ser menor de 10 números");
+        }
+        if (!esNumero(telefono)) {
+            JOptionPane.showMessageDialog(rootPane, "El telefono no puede contener espacios en blanco ni caracteres alfabéticos");
+
+        }
+    }//GEN-LAST:event_txtTelefonoFocusLost
 
     /**
      * @param args the command line arguments
@@ -352,24 +403,21 @@ public class registrarPacienteForm extends javax.swing.JFrame{
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
-  
     public boolean esNumero(String str) {
-        for (char c: str.toCharArray())
-        {
-            if (!Character.isDigit(c))
-                JOptionPane.showMessageDialog(rootPane,str.equals("") );
-                    return false;
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
         }
         return true;
     }
 
-
     public boolean contieneDigito(String str) {
-         
-        for (char c: str.toCharArray())
-        {
-            if(Character.isDigit(c) || str.equals(""))
+
+        for (char c : str.toCharArray()) {
+            if (Character.isDigit(c) || str.equals("")) {
                 return true;
+            }
         }
         return false;
     }
