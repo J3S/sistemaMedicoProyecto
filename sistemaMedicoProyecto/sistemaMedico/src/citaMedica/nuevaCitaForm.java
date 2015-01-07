@@ -49,7 +49,7 @@ public class nuevaCitaForm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         lblCedula = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("WenQuanYi Micro Hei", 0, 24)); // NOI18N
         jLabel1.setText("Nueva Cita Médica");

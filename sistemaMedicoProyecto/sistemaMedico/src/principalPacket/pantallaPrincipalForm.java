@@ -12,6 +12,7 @@ import Paciente.registrarPacienteForm;
 import citaMedica.consultarCitaForm;
 import citaMedica.modificarCitaForm;
 import citaMedica.nuevaCitaForm;
+import facturaPago.generarRecetaForm;
 
 /**
  *
@@ -55,7 +56,7 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         btnRegistrarPago = new javax.swing.JButton();
         btnConsultarPago = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Citas Médicas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -205,8 +206,18 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         btnGenerarFactura.setText("Generar Factura");
 
         btnGenerarReceta.setText("Generar Receta");
+        btnGenerarReceta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarRecetaActionPerformed(evt);
+            }
+        });
 
         btnRegistrarPago.setText("Registrar Pago");
+        btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPagoActionPerformed(evt);
+            }
+        });
 
         btnConsultarPago.setText("Consultar Pago");
 
@@ -317,6 +328,16 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         consultaFichaForm consultaFichaForm = new consultaFichaForm();
         consultaFichaForm.setVisible(true);
     }//GEN-LAST:event_btnConsultarFichaActionPerformed
+
+    private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
+        registrarPacienteForm registrarPacienteForm = new registrarPacienteForm();
+        registrarPacienteForm.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarPagoActionPerformed
+
+    private void btnGenerarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarRecetaActionPerformed
+        generarRecetaForm generarRecetaForm = new generarRecetaForm();
+        generarRecetaForm.setVisible(true);
+    }//GEN-LAST:event_btnGenerarRecetaActionPerformed
 
     /**
      * @param args the command line arguments
