@@ -40,7 +40,7 @@ public class desbloquearPacienteForm extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnDesbloquear = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("WenQuanYi Micro Hei", 0, 24)); // NOI18N
         jLabel1.setText("Desbloquear Paciente");

@@ -74,7 +74,7 @@ public class accesoForm extends javax.swing.JFrame {
                     .addComponent(txtUsuario))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addComponent(btnIngresar)
                 .addGap(57, 57, 57))
         );
@@ -131,8 +131,9 @@ public class accesoForm extends javax.swing.JFrame {
         if(((usuario.equals("medico") || usuario.equals("asistente")))&&(contrasena.equals("1234")))
         {
             pantallaPrincipalForm pantallaPrincipalForm = new pantallaPrincipalForm();
-            this.setVisible(false);
             pantallaPrincipalForm.setVisible(true);
+            txtUsuario.setText("");
+            txtContraseña.setText("");
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
