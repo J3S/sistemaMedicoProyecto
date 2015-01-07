@@ -9,6 +9,7 @@ import fichaMedica.registroFichaForm;
 import fichaMedica.consultaFichaForm;
 import Paciente.desbloquearPacienteForm;
 import Paciente.registrarPacienteForm;
+import Paciente.buscarPacienteForm;
 import citaMedica.consultarCitaForm;
 import citaMedica.modificarCitaForm;
 import citaMedica.nuevaCitaForm;
@@ -129,6 +130,11 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         btnBuscarPaciente.setFont(new java.awt.Font("WenQuanYi Micro Hei", 1, 13)); // NOI18N
         btnBuscarPaciente.setForeground(new java.awt.Color(254, 254, 254));
         btnBuscarPaciente.setText("Buscar Paciente");
+        btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPacienteActionPerformed(evt);
+            }
+        });
 
         btnDesbloquearPaciente.setBackground(new java.awt.Color(75, 75, 253));
         btnDesbloquearPaciente.setFont(new java.awt.Font("WenQuanYi Micro Hei", 1, 13)); // NOI18N
@@ -379,6 +385,11 @@ public class pantallaPrincipalForm extends javax.swing.JFrame {
         consultaFichaForm consultaFichaForm = new consultaFichaForm();
         consultaFichaForm.setVisible(true);
     }//GEN-LAST:event_btnConsultarFichaActionPerformed
+
+    private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
+        buscarPacienteForm buscarPacienteForm = new buscarPacienteForm();
+        buscarPacienteForm.setVisible(true);
+    }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 
     /**
      * @param args the command line arguments
