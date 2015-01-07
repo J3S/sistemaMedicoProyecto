@@ -5,6 +5,8 @@
  */
 package fichaMedica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author j3s
@@ -36,7 +38,6 @@ public class registroFichaForm extends javax.swing.JFrame {
         lblCodigo = new javax.swing.JLabel();
         btnConsultarCodigo = new javax.swing.JButton();
         lblNombrePaciente = new javax.swing.JLabel();
-        btnLimpiar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtEstatura = new javax.swing.JTextField();
@@ -60,11 +61,6 @@ public class registroFichaForm extends javax.swing.JFrame {
         jLabel8.setText("Código del paciente:");
 
         txtCodigoPaciente.setBackground(new java.awt.Color(254, 254, 254));
-        txtCodigoPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoPacienteActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("WenQuanYi Micro Hei", 0, 24)); // NOI18N
         jLabel1.setText("Nueva Ficha Médica");
@@ -76,10 +72,13 @@ public class registroFichaForm extends javax.swing.JFrame {
         lblCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnConsultarCodigo.setText("Consultar");
+        btnConsultarCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCodigoActionPerformed(evt);
+            }
+        });
 
         lblNombrePaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnLimpiar.setText("Limpiar");
 
         jLabel7.setText("Cédula del paciente:");
 
@@ -110,6 +109,11 @@ public class registroFichaForm extends javax.swing.JFrame {
         txtFreqResp.setBackground(new java.awt.Color(254, 254, 254));
 
         txtRegistro.setText("Registrar Ficha Médica");
+        txtRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRegistroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,9 +144,7 @@ public class registroFichaForm extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtCodigoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnConsultarCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpiar))
+                                .addComponent(btnConsultarCodigo))
                             .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFreqResp, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -169,8 +171,7 @@ public class registroFichaForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtCodigoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultarCodigo)
-                    .addComponent(btnLimpiar))
+                    .addComponent(btnConsultarCodigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
@@ -216,9 +217,40 @@ public class registroFichaForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCodigoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoPacienteActionPerformed
+    private void btnConsultarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCodigoActionPerformed
+        String codigo = txtCodigoPaciente.getText();
+        if (!esNumero(codigo)) 
+            JOptionPane.showMessageDialog(rootPane, "El codigo no puede contener espacios en blanco ni caracteres alfabéticos", "Advertencia", 2);
+        else if (codigo.equals("")) 
+            JOptionPane.showMessageDialog(rootPane, "El código no puede estar vacío", "Advertencia", 2);
+    }//GEN-LAST:event_btnConsultarCodigoActionPerformed
+
+    private void txtRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegistroActionPerformed
+        String presionAsis = txtPresionArterialSis.getText();
+        String presionDias = txtPresionArterialDias.getText();
+        String freqCard = txtFreqCard.getText();
+        String freqResp = txtFreqResp.getText();
+        
+        if (!esNumero(presionAsis)) 
+            JOptionPane.showMessageDialog(rootPane, "El campo presión arterial sistólica no puede contener espacios en blanco ni caracteres alfabéticos", "Advertencia", 2);
+        else if (presionAsis.equals("")) 
+            JOptionPane.showMessageDialog(rootPane, "El campo presión arterial sistólica no puede estar vacío", "Advertencia", 2);
+        
+        if (!esNumero(presionDias)) 
+            JOptionPane.showMessageDialog(rootPane, "El campo presión arterial diastólica no puede contener espacios en blanco ni caracteres alfabéticos", "Advertencia", 2);
+        else if (presionAsis.equals("")) 
+            JOptionPane.showMessageDialog(rootPane, "El campo presión arterial diastólica no puede estar vacío", "Advertencia", 2);
+        
+        if (!esNumero(freqCard)) 
+            JOptionPane.showMessageDialog(rootPane, "El campo frecuencia cardiaca no puede contener espacios en blanco ni caracteres alfabéticos", "Advertencia", 2);
+        else if (presionAsis.equals("")) 
+            JOptionPane.showMessageDialog(rootPane, "El campo frecuencia cardiaca no puede estar vacío", "Advertencia", 2);
+        
+        if (!esNumero(freqResp)) 
+            JOptionPane.showMessageDialog(rootPane, "El campo frecuencia respiratoria no puede contener espacios en blanco ni caracteres alfabéticos", "Advertencia", 2);
+        else if (presionAsis.equals("")) 
+            JOptionPane.showMessageDialog(rootPane, "El campo frecuencia respiratoria no puede estar vacío", "Advertencia", 2);
+    }//GEN-LAST:event_txtRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,7 +289,6 @@ public class registroFichaForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultarCodigo;
-    private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -282,4 +313,14 @@ public class registroFichaForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtPresionArterialSis;
     private javax.swing.JButton txtRegistro;
     // End of variables declaration//GEN-END:variables
+
+    public boolean esNumero(String str) {
+        for (char c: str.toCharArray())
+        {
+            if (!Character.isDigit(c))
+                    return false;
+        }
+        return true;
+    }
+    
 }

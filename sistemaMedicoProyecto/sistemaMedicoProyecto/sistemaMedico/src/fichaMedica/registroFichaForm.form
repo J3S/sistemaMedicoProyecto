@@ -50,8 +50,6 @@
                               <Component id="txtCodigoPaciente" min="-2" pref="112" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="btnConsultarCodigo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnLimpiar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtPeso" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="txtFreqResp" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
@@ -89,7 +87,6 @@
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCodigoPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnConsultarCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -167,9 +164,6 @@
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoPacienteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -202,6 +196,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarCodigoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombrePaciente">
       <Properties>
@@ -210,11 +207,6 @@
             <LineBorder/>
           </Border>
         </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnLimpiar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpiar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -303,6 +295,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar Ficha M&#xe9;dica"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRegistroActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

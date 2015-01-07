@@ -207,7 +207,7 @@ public class desbloquearPacienteForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombrePaciente;
     private javax.swing.JTextField txtCodigoPaciente;
     // End of variables declaration//GEN-END:variables
-public boolean esNumero(String str) {
+    public boolean esNumero(String str) {
         for (char c: str.toCharArray())
         {
             if (!Character.isDigit(c))
